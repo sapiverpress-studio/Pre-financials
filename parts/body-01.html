@@ -1,0 +1,179 @@
+
+  <div class="topbar hidden" id="topbar">
+    <div class="progress-wrap">
+      <div class="progress-label"><span id="stepLabel">Section 1</span><span id="profileState" class="adaptive-status">Building profile…</span><span id="completionState">0% answered</span><span id="saveState">Saved locally</span></div>
+      <div class="progress"><span id="progressBar"></span></div>
+    </div>
+  </div>
+
+  <main class="shell">
+    <header>
+      <span><span class="tag">Adaptive interview</span><span class="tag">UK pre-advice profile</span><span class="tag">Anonymous</span><span class="tag">Browser-only</span></span>
+      <h1>Adaptive UK Client Fact Find & Financial Planning Profile</h1>
+      <p class="lede">A rule-based adaptive pre-advice fact find that changes the interview around the person, couple or family while organising the information a UK financial planner, accountant or other professional would normally need. It can be completed anonymously as Client A / Client B.</p>
+      <div class="notice"><strong>Privacy:</strong> this file does not send your answers anywhere. Answers are stored only in this browser using local storage until you clear them. Do not enter names, addresses, account numbers, passwords, National Insurance numbers, creditor references or security information.</div>
+      <div class="warning"><strong>Important:</strong> this is a pre-advice information pack, not an FCA-prescribed form and not regulated financial, tax or legal advice. A professional firm may still need its own identity, anti-money-laundering, consent and suitability paperwork before giving advice.</div>
+    </header>
+
+
+    <section id="introCard" class="intro">
+      <h2>Before you begin</h2>
+      <p>You do not need financial knowledge to complete this. The aim is to create a professional-quality picture of the household before anybody recommends a product or charges for work that could have been prepared in advance.</p>
+
+      <div class="intro-grid">
+        <div class="intro-point"><strong>Leave unknowns unknown</strong>If you do not know a figure or answer, leave it blank or choose “Unsure”. A missing fact is more useful than a guessed one.</div>
+        <div class="intro-point"><strong>Estimates are acceptable</strong>For household spending, asset values and similar figures, a sensible estimate is useful. You can mark how reliable the figures are.</div>
+        <div class="intro-point"><strong>No identity needed</strong>Do not enter names, addresses, account numbers, passwords, National Insurance numbers, creditor references or security codes.</div>
+      </div>
+
+      <div class="notice">
+        <strong>What happens to your answers?</strong>
+        <ul class="privacy-list">
+          <li>This page contains no analytics, adverts, trackers or external scripts.</li>
+          <li>Nothing is automatically uploaded or emailed.</li>
+          <li>Answers are saved only in this browser so you can stop and continue later on the same device.</li>
+          <li>At the end, you choose whether to copy or download an anonymous scenario.</li>
+          <li>On a shared device, clear the saved answers when finished.</li>
+        </ul>
+      </div>
+
+      
+      <div class="adaptive-banner">
+        <strong>This interview adapts as you answer.</strong>
+        Irrelevant sections are skipped. Relevant answers can open deeper questions—for example children, mortgages, an IVA, self-employment, investments or a second adult’s finances. The branching is rule-based in your browser; no AI service receives the answers while you complete it.
+      </div>
+
+      <div class="warning"><strong>Not advice:</strong> the questionnaire organises facts, evidence and unresolved questions. It deliberately separates things you can check yourself from matters that may warrant an accountant, solicitor, insolvency practitioner or FCA-authorised adviser.</div>
+
+      <div class="actions">
+        <button type="button" class="btn primary" id="startBtn">Start a new questionnaire</button>
+        <button type="button" class="btn ghost hidden" id="resumeLocalBtn">Resume saved questionnaire on this browser</button>
+        <button type="button" class="btn ghost hidden" id="startFreshBtn">Clear saved browser answers</button>
+        <button type="button" class="btn ghost" id="downloadProgressIntro">Save progress file</button>
+        <button type="button" class="btn ghost" id="loadProgressIntro">Load progress file</button>
+        <input type="file" id="progressFileInput" accept=".json,application/json" class="hidden">
+
+      </div>
+    </section>
+
+    <form id="factFind" class="card hidden" autocomplete="off">
+
+      <section class="step active" data-step="1">
+        <h2>1. Household & life stage</h2>
+        <div class="why">Why we ask: household structure, dependants and likely life changes affect how much resilience, liquidity and protection may be needed.</div>
+        <p class="section-note">Use ranges rather than identifying details wherever possible. Leave an answer blank rather than guessing.</p>
+        <div class="adaptive-banner">
+          <strong>These first answers build the interview.</strong>
+          They determine which later sections appear and whether the form needs separate Client A, Client B and joint information.
+          <div id="profilePills" class="profile-pills"></div>
+        </div>
+
+        <div class="grid">
+          <div class="field">
+            <label for="planningUnit">Who is this financial picture for?</label>
+            <select id="planningUnit" name="planningUnit">
+              <option value="">Select…</option>
+              <option>One adult</option>
+              <option>Two adults / couple — both finances included</option>
+              <option>One adult — partner context only</option>
+              <option>Other household</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="homeStatus">Current housing position</label>
+            <select id="homeStatus" name="homeStatus">
+              <option value="">Select…</option>
+              <option>Renting</option>
+              <option>Own home outright</option>
+              <option>Home with mortgage</option>
+              <option>Living in partner-owned home / not on title</option>
+              <option>Living with family / no housing liability</option>
+              <option>Other / unsure</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="formalArrangementTrigger">Any current/recent formal debt or insolvency arrangement?</label>
+            <select id="formalArrangementTrigger" name="formalArrangementTrigger">
+              <option value="">Select…</option><option>No</option><option>Yes</option><option>Unsure</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="otherDebtsTrigger">Any mortgage-excluding debt or liabilities?</label>
+            <select id="otherDebtsTrigger" name="otherDebtsTrigger">
+              <option value="">Select…</option><option>No</option><option>Yes</option><option>Unsure</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="hasPensions">Any pension rights/pots (including workplace or DB schemes)?</label>
+            <select id="hasPensions" name="hasPensions">
+              <option value="">Select…</option><option>No</option><option>Yes</option><option>Unsure</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="hasInvestments">Any investments outside ordinary cash savings?</label>
+            <select id="hasInvestments" name="hasInvestments">
+              <option value="">Select…</option><option>No</option><option>Yes</option><option>Unsure</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="hasBusiness">Any self-employment, company directorship or business interest?</label>
+            <select id="hasBusiness" name="hasBusiness">
+              <option value="">Select…</option><option>No</option><option>Yes</option><option>Unsure</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="propertyElsewhere">Any other property ownership or financial interest?</label>
+            <select id="propertyElsewhere" name="propertyElsewhere">
+              <option value="">Select…</option><option>No</option><option>Yes</option><option>Unsure</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="rentingProfileBlock" class="conditional adaptive-hidden">
+          <h3>Renting</h3>
+          <div class="grid">
+            <div class="field"><label for="rentMonthly">Rent / month (£)</label><input id="rentMonthly" name="rentMonthly" type="number" min="0"></div>
+            <div class="field"><label for="buyingHomeGoal">Is buying a home a financial goal?</label><select id="buyingHomeGoal" name="buyingHomeGoal"><option value="">Select…</option><option>No</option><option>Yes — within 3 years</option><option>Yes — 3–5 years</option><option>Yes — later / unsure</option></select></div>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="field">
+            <label for="jurisdiction">Country / tax jurisdiction</label>
+            <input id="jurisdiction" name="jurisdiction" type="text" placeholder="e.g. UK">
+          </div>
+          <div class="field">
+            <label for="ageBand">Your age band</label>
+            <select id="ageBand" name="ageBand"><option value="">Select…</option><option>18–24</option><option>25–34</option><option>35–44</option><option>45–54</option><option>55–64</option><option>65+</option></select>
+          </div>
+          <div class="field">
+            <label for="relationship">Relationship status</label>
+            <select id="relationship" name="relationship">
+              <option value="">Select…</option><option>Single</option><option>Living with partner — not married/civil partnered</option><option>Engaged</option><option>Married</option><option>Civil partnership</option><option>Separated</option><option>Divorced/dissolved</option><option>Other</option>
+            </select>
+          </div>
+          <div class="field" id="partnerAgeGroup">
+            <label for="partnerAge">Partner age band</label>
+            <select id="partnerAge" name="partnerAge"><option value="">Not applicable / select…</option><option>18–24</option><option>25–34</option><option>35–44</option><option>45–54</option><option>55–64</option><option>65+</option></select>
+          </div>
+          <div class="field">
+            <label for="dependants">Number of financial dependants</label>
+            <input id="dependants" name="dependants" type="number" min="0" step="1">
+          </div>
+          <div class="field">
+            <label for="dependantAges">Dependants' age bands</label>
+            <input id="dependantAges" name="dependantAges" type="text" placeholder="e.g. under 5; 5–10">
+          </div>
+        </div>
+        <div class="field">
+          <label>Expected household changes in the next 5 years</label>
+          <div class="checks">
+            <label><input type="checkbox" name="lifeChange" value="Marriage/civil partnership"> Marriage/civil partnership</label>
+            <label><input type="checkbox" name="lifeChange" value="Children"> Children</label>
+            <label><input type="checkbox" name="lifeChange" value="House move"> House move</label>
+            <label><input type="checkbox" name="lifeChange" value="Career/business change"> Career/business change</label>
+            <label><input type="checkbox" name="lifeChange" value="Reduced working hours/retirement"> Reduced working hours/retirement</label>
+            <label><input type="checkbox" name="lifeChange" value="Caring responsibilities"> Caring responsibilities</label>
+          </div>
+        </div>
+        <div class="field"><label for="household

@@ -1,0 +1,19 @@
+name: Validate audited fact-find
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Rebuild and verify audited V4.3
+        run: node build.mjs
+      - name: Confirm output exists
+        run: test -s dist/index.html && test -s dist/robots.txt

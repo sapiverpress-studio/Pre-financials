@@ -1,0 +1,90 @@
+Notes">Anything else materially affecting the household?</label><textarea id="householdNotes" name="householdNotes"></textarea></div>
+      </section>
+
+      <section class="step" data-step="2" data-kind="core">
+        <h2>2. Goals & priorities</h2>
+        <div class="why">Why we ask: a financially efficient decision can still be wrong if it works against the person's actual priorities or timing.</div>
+        <div class="field"><label for="primaryGoal">Most important financial goal</label><textarea id="primaryGoal" name="primaryGoal" placeholder="What should money make possible?"></textarea></div>
+        <div class="grid">
+          <div class="field"><label for="goal1to5">Important goal in the next 1–5 years</label><textarea id="goal1to5" name="goal1to5"></textarea></div>
+          <div class="field"><label for="goal5plus">Important goal 5+ years away</label><textarea id="goal5plus" name="goal5plus"></textarea></div>
+          <div class="field"><label for="workOptional">Age when paid work should ideally become optional</label><input id="workOptional" name="workOptional" type="number" min="18" max="100"></div>
+          <div class="field"><label for="biggestConcern">Biggest financial concern</label><textarea id="biggestConcern" name="biggestConcern"></textarea></div>
+        </div>
+        <div class="field"><label for="decisionPending">Important financial decision currently waiting to be made</label><textarea id="decisionPending" name="decisionPending"></textarea></div>
+        <div class="field"><label for="majorCosts">Known major costs in the next 5 years (approximate amount and timing)</label><textarea id="majorCosts" name="majorCosts" placeholder="e.g. £15,000 home renovation in ~2 years"></textarea></div>
+      </section>
+
+      <section class="step" data-step="3" data-kind="core">
+        <h2>3. Income & employment</h2>
+        <div class="adaptive-banner"><strong>Income adapts to the planning unit.</strong> Household totals are useful for cash flow; individual figures matter for tax, pensions, affordability and ownership.</div>
+
+        <div class="person-card">
+          <h3>Client A</h3>
+          <div class="grid3">
+            <div class="field"><label for="clientAGrossIncome">Gross income / year (£)</label><input id="clientAGrossIncome" name="clientAGrossIncome" type="number" min="0"></div>
+            <div class="field"><label for="clientANetIncome">Net income / month (£)</label><input id="clientANetIncome" name="clientANetIncome" type="number" min="0"><small>Take-home after tax, NI, payroll pension and UK income-contingent student-loan deductions.</small></div>
+            <div class="field"><label for="clientAEmployment">Employment status</label><select id="clientAEmployment" name="clientAEmployment"><option value="">Select…</option><option>Employee</option><option>Self-employed</option><option>Company director</option><option>Business owner</option><option>Retired</option><option>Not currently working</option><option>Other</option><option>Unsure</option></select></div>
+          </div>
+        </div>
+
+        <div class="person-card adaptive-hidden" id="clientBIncomeBlock">
+          <h3>Client B</h3>
+          <div class="grid3">
+            <div class="field"><label for="clientBGrossIncome">Gross income / year (£)</label><input id="clientBGrossIncome" name="clientBGrossIncome" type="number" min="0"></div>
+            <div class="field"><label for="clientBNetIncome">Net income / month (£)</label><input id="clientBNetIncome" name="clientBNetIncome" type="number" min="0"><small>Take-home after tax, NI, payroll pension and UK income-contingent student-loan deductions.</small></div>
+            <div class="field"><label for="clientBEmployment">Employment status</label><select id="clientBEmployment" name="clientBEmployment"><option value="">Select…</option><option>Employee</option><option>Self-employed</option><option>Company director</option><option>Business owner</option><option>Retired</option><option>Not currently working</option><option>Other</option><option>Unsure</option></select></div>
+          </div>
+        </div>
+
+        <div id="businessDetailBlock" class="conditional adaptive-hidden">
+          <h3>Business / self-employment detail</h3>
+          <div class="grid">
+            <div class="field"><label for="businessStructure">Structure</label><select id="businessStructure" name="businessStructure"><option value="">Select…</option><option>Sole trader</option><option>Limited company</option><option>Partnership</option><option>Multiple / other</option><option>Unsure</option></select></div>
+            <div class="field"><label for="businessProfit">Approx. annual profit / drawings available to household (£)</label><input id="businessProfit" name="businessProfit" type="number" min="0"></div>
+            <div class="field"><label for="businessCashReserve">Business cash reserve (£)</label><input id="businessCashReserve" name="businessCashReserve" type="number" min="0"></div>
+            <div class="field"><label for="businessTaxReserve">Tax reserve currently set aside (£)</label><input id="businessTaxReserve" name="businessTaxReserve" type="number" min="0"></div>
+            <div class="field"><label for="businessPensionContrib">Business/company pension contributions / year (£)</label><input id="businessPensionContrib" name="businessPensionContrib" type="number" min="0"></div>
+            <div class="field"><label for="businessNotesAdaptive">Material business risks / guarantees / upcoming capital needs</label><textarea id="businessNotesAdaptive" name="businessNotesAdaptive"></textarea></div>
+          </div>
+        </div>
+
+        <div class="why">Why we ask: income level matters, but stability, variability and future changes determine how much financial risk the household can safely absorb.</div>
+        <div class="grid3">
+          <div class="field"><label for="netIncome">Net household income / month (£)</label><input class="money" id="netIncome" name="netIncome" type="number" min="0" step="1"><small>Take-home income after tax, National Insurance, payroll pension deductions and any UK income-contingent student-loan deduction.</small></div>
+          <div class="field"><label for="grossIncome">Gross household income / year (£)</label><input class="money" id="grossIncome" name="grossIncome" type="number" min="0" step="1"></div>
+          <div class="field"><label for="incomeStability">Income stability</label><select id="incomeStability" name="incomeStability"><option value="">Select…</option><option>Stable</option><option>Moderately variable</option><option>Highly variable</option><option>Unsure</option></select></div>
+        </div>
+        <div class="grid">
+          <div class="field"><label for="employmentA">Main earner employment type</label><select id="employmentA" name="employmentA"><option value="">Select…</option><option>Employee</option><option>Self-employed</option><option>Company director</option><option>Business owner</option><option>Retired</option><option>Other</option><option>Unsure</option></select></div>
+          <div class="field"><label for="employmentB">Partner employment type</label><select id="employmentB" name="employmentB"><option value="">Not applicable / select…</option><option>Employee</option><option>Self-employed</option><option>Company director</option><option>Business owner</option><option>Retired</option><option>Other</option><option>Unsure</option></select></div>
+          <div class="field"><label for="bonusIncome">Variable/bonus/overtime income / year (£)</label><input id="bonusIncome" name="bonusIncome" type="number" min="0"></div>
+          <div class="field"><label for="benefitsIncome">Benefits / other regular income / month (£)</label><input id="benefitsIncome" name="benefitsIncome" type="number" min="0"></div>
+        </div>
+        <div class="quality"><label for="incomeQuality">How reliable are the income figures above?</label><select id="incomeQuality" name="incomeQuality"><option value="">Select…</option><option>Exact / taken from records</option><option>Mostly exact</option><option>Mostly estimated</option><option>Rough estimate</option><option>Unsure</option></select></div>
+        <div class="field"><label for="incomeChanges">Expected income changes in next 5 years</label><textarea id="incomeChanges" name="incomeChanges"></textarea></div>
+        <h3>Income schedule</h3>
+        <div class="schedule-note">Optional detail for a professional handover. One line per source: <strong>Client A/B | source | gross annual amount | net monthly amount | fixed/variable | notes</strong>.</div>
+        <div class="field"><label for="incomeSchedule">Detailed income sources</label><textarea id="incomeSchedule" name="incomeSchedule" placeholder="Client A | Employment | £45,000 gross | £2,850 net/month | Stable | PAYE&#10;Client B | Overtime | £3,000/year | variable | Not guaranteed"></textarea></div>
+        <div class="field"><label for="employerBenefits">Employment benefits worth recording</label><textarea id="employerBenefits" name="employerBenefits" placeholder="Pension match, salary sacrifice, death in service, private medical, sick pay, share schemes, bonus arrangements…"></textarea></div>
+      </section>
+
+      <section class="step" data-step="4" data-kind="core">
+        <h2>4. Spending & cash flow</h2>
+        <div class="why">Why we ask: sustainable saving and debt repayment depend on the real monthly surplus, not headline income.</div>
+        <div class="grid3">
+          <div class="field"><label for="essentialSpend">Essential household spending / month (£) — excluding rent/mortgage, childcare and debt payments entered elsewhere</label><input id="essentialSpend" name="essentialSpend" type="number" min="0"><small>Include food, utilities, council tax, transport and other essentials. Do not include separate housing, childcare, debt, saving, investing or pension fields again.</small></div>
+          <div class="field"><label for="discretionarySpend">Discretionary spending / month (£)</label><input id="discretionarySpend" name="discretionarySpend" type="number" min="0"></div>
+          <div class="field"><label for="annualIrregular">Other irregular/annual costs / year (£)</label><input id="annualIrregular" name="annualIrregular" type="number" min="0"><small>Exclude school/activity costs if you enter those later in the children section.</small></div>
+          <div class="field"><label for="monthlySaving">Cash saving / month (£)</label><input id="monthlySaving" name="monthlySaving" type="number" min="0"></div>
+          <div class="field"><label for="monthlyInvesting">Investing outside pensions / month (£)</label><input id="monthlyInvesting" name="monthlyInvesting" type="number" min="0"></div>
+          <div class="field"><label for="monthlyPension">Pension contributions paid separately from take-home pay / month (£)</label><input id="monthlyPension" name="monthlyPension" type="number" min="0"><small>Do not include workplace pension contributions already deducted before the net-income figure above.</small></div>
+        </div>
+        <div class="quality"><label for="spendingQuality">How reliable are the spending figures above?</label><select id="spendingQuality" name="spendingQuality"><option value="">Select…</option><option>Exact / tracked</option><option>Mostly exact</option><option>Mostly estimated</option><option>Rough estimate</option><option>Unsure</option></select></div>
+        <div class="field"><label for="spendNotes">Any spending that is unusually high, temporary or likely to change?</label><textarea id="spendNotes" name="spendNotes"></textarea></div>
+      </section>
+
+      <section class="step" data-step="5" data-kind="core">
+        <h2>5. Cash, assets & emergency reserve</h2>
+        <div class="adaptive-banner"><strong>Ownership matters.</strong> Household totals show scale; the ownership schedule distinguishes Client A, Client B and joint assets.</div>
+        <div class="field"><labe
